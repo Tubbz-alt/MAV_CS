@@ -1,0 +1,4 @@
+#ifndef I2CDEVICE_HPP
+#define I2CDEVICE_HPP
+
+#endif // I2CDEVICE_HPP

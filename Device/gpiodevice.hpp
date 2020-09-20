@@ -1,0 +1,4 @@
+#ifndef GPIODEVICE_HPP
+#define GPIODEVICE_HPP
+
+#endif // GPIODEVICE_HPP
