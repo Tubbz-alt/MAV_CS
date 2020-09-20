@@ -1,4 +1,18 @@
-#ifndef UART_HPP
-#define UART_HPP
+#ifndef UARTDEVICE_HPP
+#define UARTDEVICE_HPP
 
-#endif // UART_HPP
+#include "device.hpp"
+
+class UARTDevice : public Device{
+public:
+
+    UARTDevice() = default;
+
+    UARTDevice(uint32_t bods) noexcept;
+
+protected:
+
+    const uint32_t bods_ = 0;
+};
+
+#endif // UARTDEVICE_HPP
