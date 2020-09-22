@@ -13,11 +13,11 @@ public:
     explicit I2CDevice(uint8_t address,
                        uint16_t length) noexcept;
 
-    bool open();
+    bool Open();
 
-    uint32_t read() override;
+    uint32_t Read() override;
 
-    void write() override;
+    void Write() override;
 
     virtual ~I2CDevice();
 

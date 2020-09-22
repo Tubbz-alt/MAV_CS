@@ -12,9 +12,9 @@ public:
 
 protected:
 
-    virtual uint32_t read() = 0;
+    virtual uint32_t Read() = 0;
 
-    virtual void write() = 0;
+    virtual void Write() = 0;
 };
 
 #endif // DEVICE_HPP

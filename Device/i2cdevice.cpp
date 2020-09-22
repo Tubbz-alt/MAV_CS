@@ -14,7 +14,7 @@ I2CDevice::~I2CDevice(){
         close(file_i2c_);
 }
 
-bool I2CDevice::open(){
+bool I2CDevice::Open(){
     char* filename = (char*)"/dev/i2c-1";
     file_i2c_ = open(filename, O_RDWR);
     if(file_i2c_ < 0)
@@ -24,12 +24,12 @@ bool I2CDevice::open(){
     return true;
 }
 
-uint32_t I2CDevice::read(){
+uint32_t I2CDevice::Read(){
     if(read(file_i2c_, buffer_, length_) != length_)
         return 0;
 }
 
-void I2CDevice::write(){
+void I2CDevice::Write(){
     int len = 2;
     if(write(file_i2c_, buffer_ + 16, len) != len)
         return;
