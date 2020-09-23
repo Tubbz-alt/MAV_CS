@@ -19,14 +19,14 @@ public:
 
     void Write() override;
 
-    virtual ~I2CDevice();
+    virtual ~I2CDevice() override;
 
 protected:
 
     const uint8_t address_    = 0x00;
     int file_i2c_             = 0;
     uint16_t length_          = 0;
-    unsigned char buffer_[32] = {};
+    uint8_t data_[32]         = {};
     static std::mutex locker_;
 
 };

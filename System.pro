@@ -1,5 +1,5 @@
 TEMPLATE = app
-CONFIG += console c++17
+CONFIG += console
 CONFIG -= app_bundle
 CONFIG -= qt
 QMAKE_CXXFLAGS += -pthread
@@ -10,8 +10,9 @@ SOURCES += \
     Device/device.cpp \
     Device/i2cdevice.cpp \
     Device/uartdevice.cpp \
-    Device/gpiodevice.cpp \
-    Sensor/camera.cpp
+    Sensor/camera.cpp \
+    Sensor/thermometer_dht.cpp \
+    Device/GPIO.cpp
 
 HEADERS += \
     Device/device.hpp \
@@ -21,7 +22,8 @@ HEADERS += \
     Sensor/imu.hpp \
     Sensor/accelerometer_lis331dlh.hpp \
     Device/uartdevice.hpp \
-    Device/gpiodevice.hpp
+    Sensor/thermometer_dht.hpp \
+    Device/GPIO.hpp
 
 unix:!macx: LIBS += -L$$PWD/../../../usr/local/lib/ -lopencv_videoio
 
@@ -43,3 +45,6 @@ unix:!macx: LIBS += -L$$PWD/../../../usr/local/lib/ -lopencv_highgui
 
 INCLUDEPATH += $$PWD/../../../usr/local/include
 DEPENDPATH += $$PWD/../../../usr/local/include
+
+unix:!macx: LIBS += -L$$PWD/../../../usr/lib/ -lwiringPi
+

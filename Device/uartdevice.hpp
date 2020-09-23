@@ -10,6 +10,10 @@ public:
 
     UARTDevice(uint32_t bods) noexcept;
 
+    uint32_t Read() override{}
+
+    void Write() override{}
+
 protected:
 
     const uint32_t bods_ = 0;

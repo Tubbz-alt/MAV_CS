@@ -25,12 +25,13 @@ bool I2CDevice::Open(){
 }
 
 uint32_t I2CDevice::Read(){
-    if(read(file_i2c_, buffer_, length_) != length_)
+    if(read(file_i2c_, data_, length_) != length_)
         return 0;
+    return length_;
 }
 
 void I2CDevice::Write(){
     int len = 2;
-    if(write(file_i2c_, buffer_ + 16, len) != len)
+    if(write(file_i2c_, data_ + 16, len) != len)
         return;
 }
