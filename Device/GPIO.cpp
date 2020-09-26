@@ -1,5 +1,4 @@
 #include "GPIO.hpp"
-#include <chrono>
 
 GPIO::GPIO(uint8_t pin) noexcept : pin_(pin) {}
 
@@ -9,13 +8,13 @@ uint8_t GPIO::getPin() const noexcept{
 }
 
 unsigned long GPIO::pulseInLength(bool state, unsigned long timeout){
-    auto start = std::chrono::steady_clock::now();
+    auto start = micros();
 
     while(digitalRead(pin_) == state){
-        if(std::chrono::duration_cast<std::chrono::microseconds>(std::chrono::steady_clock::now() - start).count() > timeout)
+        if(micros() - start > timeout)
             return 0;
     }
-    return static_cast<unsigned long>(std::chrono::duration_cast<std::chrono::microseconds>(std::chrono::steady_clock::now() - start).count());
+    return micros() - start;
 }
 
 void GPIO::PinMode(int mode){
@@ -26,6 +25,6 @@ int GPIO::DigitalRead() const{
     return digitalRead(pin_);
 }
 
-void GPIO::DigitalWritre(int level) const{
+void GPIO::DigitalWrite(int level) const{
     digitalWrite(pin_, level);
 }

@@ -12,7 +12,7 @@ public:
 
     GPIO(uint8_t pin) noexcept;
 
-    void DigitalWritre(int level) const;
+    void DigitalWrite(int level) const;
 
     int DigitalRead() const;
 

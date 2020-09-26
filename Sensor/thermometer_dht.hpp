@@ -13,7 +13,7 @@ public:
         DHT22 = 22
     };
 
-    enum class DHTErrorCode{
+    enum class ErrorCode{
         OK = 0,
         ERROR_CHECKSUM = -1,
         ERROR_TIMEOUT  = -2,
@@ -26,7 +26,7 @@ public:
     explicit Thermometer_DHT(uint8_t pin,
                              DHT type = DHT::DHT11) noexcept;
 
-    DHTErrorCode Read();
+    void Read();
 
     float getHumidity() const noexcept;
 
@@ -37,6 +37,8 @@ public:
     float getTemperatureK() const noexcept;
 
 protected:
+
+    ErrorCode ReadBackEnd();
 
     std::unique_ptr<GPIO> source_;
 

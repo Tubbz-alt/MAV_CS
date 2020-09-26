@@ -2,7 +2,7 @@ TEMPLATE = app
 CONFIG += console
 CONFIG -= app_bundle
 CONFIG -= qt
-QMAKE_CXXFLAGS += -pthread
+QMAKE_CXXFLAGS += -pthread -O2
 LIBS += -pthread
 
 SOURCES += \
