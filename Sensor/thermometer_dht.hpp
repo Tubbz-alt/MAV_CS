@@ -13,14 +13,6 @@ public:
         DHT22 = 22
     };
 
-    enum class ErrorCode{
-        OK = 0,
-        ERROR_CHECKSUM = -1,
-        ERROR_TIMEOUT  = -2,
-        ERROR_NO_REPLY = -3
-    };
-
-
     Thermometer_DHT() = default;
 
     explicit Thermometer_DHT(uint8_t pin,
@@ -38,7 +30,7 @@ public:
 
 protected:
 
-    ErrorCode ReadBackEnd();
+    GPIO::ErrorCode ReadBackEnd();
 
     std::unique_ptr<GPIO> source_;
 
