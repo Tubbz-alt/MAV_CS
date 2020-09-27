@@ -12,7 +12,8 @@ SOURCES += \
     Device/uartdevice.cpp \
     Sensor/camera.cpp \
     Sensor/thermometer_dht.cpp \
-    Device/GPIO.cpp
+    Device/GPIO.cpp \
+    Sensor/ultrasonic_urm37.cpp
 
 HEADERS += \
     Device/device.hpp \
@@ -23,7 +24,8 @@ HEADERS += \
     Sensor/accelerometer_lis331dlh.hpp \
     Device/uartdevice.hpp \
     Sensor/thermometer_dht.hpp \
-    Device/GPIO.hpp
+    Device/GPIO.hpp \
+    Sensor/ultrassonic_urm37.hpp
 
 unix:!macx: LIBS += -L$$PWD/../../../usr/local/lib/ -lopencv_videoio
 

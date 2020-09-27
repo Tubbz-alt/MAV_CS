@@ -22,6 +22,12 @@ public:
 
     unsigned long pulseInLength(bool state, unsigned long timeout = 1'000'000L);
 
+    enum class ErrorCode{
+        OK = 0,
+        ERROR_CHECKSUM = -1,
+        ERROR_TIMEOUT  = -2,
+        ERROR_NO_REPLY = -3
+    };
 
 protected:
 
