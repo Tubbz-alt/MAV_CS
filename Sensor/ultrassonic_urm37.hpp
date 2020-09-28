@@ -19,14 +19,18 @@ protected:
 
     void Setup();
 
-    bool VerifiedData(const uint32_t* data)  noexcept{}
+    bool VerifiedData(const int* data)  noexcept;
 
     GPIO::ErrorCode ReadBackEnd();
+
+    void TryToCollectData();
 
     std::unique_ptr<GPIO> echo_ = nullptr;
     std::unique_ptr<GPIO> trig_ = nullptr;
 
     uint32_t distance_ = 0;
+
+    uint32_t tmp_ = 0;
 };
 
 #endif // ULTRASSONIC_URM37_HPP
